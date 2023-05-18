@@ -1,12 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Userdetail from './Userdetail'
 import { useNavigate } from 'react-router-dom';
 const View = () => {
   // const ref = useRef(null)
   const navigate = useNavigate();
 
-  const [user, setuser] = useState()
-  const [i, seti] = useState(-1)
   const [userData, setuserData] = useState([])
   const [FilterData, setFilterData] = useState([])
   const [search, setsearch] = useState('')
@@ -20,8 +18,6 @@ const View = () => {
   const clickedit = (currentuser, i) => {
     console.log("user", currentuser)
     isEdit = 1; //state
-    setuser(currentuser)
-    seti(i);
     navigate("/", { state: { user: currentuser, isEdit: isEdit, index: i } })
   }
 
@@ -42,6 +38,7 @@ const View = () => {
     } else if (userData.length > 0) {
       setFilterData(userData)
     }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search])
 
   console.log('userData', userData)

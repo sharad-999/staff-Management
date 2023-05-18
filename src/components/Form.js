@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { add } from '../store/userSlice'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom';
-import moment from 'moment';
 
 
 
@@ -31,6 +30,7 @@ const Form = () => {
       setdate(user.date)
       setgender(user.gender)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const [Formerrors, setFormerrors] = useState()
